@@ -1,12 +1,17 @@
-#######  NOCH IN ARBEIT #######
+
 
 #A local gaming company contacted you to build a game for them.
 #  It is a simple geography quiz where a user has to guess the capital city of some country:
 
 
-import random
+        
+#import der benötigten Python Funktionen
+import random #Software-Paket
+import json #Software-Bibliothek
+import datetime
+# -*- coding: utf-8 -*-
 
-countries_cities = {"Austria": "Vienna",
+geo_liste = {"Austria": "Vienna",
                     "China": "Peking",
                     "Croatia": "Zagreb",
                     "Germany": "Berlin",
@@ -15,14 +20,17 @@ countries_cities = {"Austria": "Vienna",
                     "Switzerland": "Bern",
                     "Italy": "Rome"
                     }
+attempts = 0
+land, hauptstadt = random.choice(list(geo_liste.items()))
 
 while True:
-    random = random.choice(list(countries_cities))
-    question = input ("What is the capital city of " + random + "?")
-    if countries_cities.values() == question:
-        print("This is correct!")
+    attempts += 1
+    guess = input(f"What is the capital city of {land} ?")
+
+    if hauptstadt == guess:
+        print("Right")
+        print(f"You had {attempts} attempts.")
         break
     else:
-       print("That's wrong!")
-
+        print("That's wrong. Please try again.")
 
