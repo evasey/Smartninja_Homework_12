@@ -4,33 +4,29 @@
 #  It is a simple geography quiz where a user has to guess the capital city of some country:
 
 
-        
-#import der benötigten Python Funktionen
-import random #Software-Paket
-import json #Software-Bibliothek
-import datetime
-# -*- coding: utf-8 -*-
+import random  # Software-Paket
 
 geo_liste = {"Austria": "Vienna",
-                    "China": "Peking",
-                    "Croatia": "Zagreb",
-                    "Germany": "Berlin",
-                    "Namibia": "Windhoek",
-                    "Spain": "Madrid",
-                    "Switzerland": "Bern",
-                    "Italy": "Rome"
-                    }
+             "China": "Peking",
+             "Croatia": "Zagreb",
+             "Germany": "Berlin",
+             "Namibia": "Windhoek",
+             "Spain": "Madrid",
+             "Switzerland": "Bern",
+             "Italy": "Rome"
+             }
 attempts = 0
-land, hauptstadt = random.choice(list(geo_liste.items()))
+country, capital = random.choice(list(geo_liste.items()))
 
 while True:
     attempts += 1
-    guess = input(f"What is the capital city of {land} ?")
+    guess = input(f"What is the capital city of {country} ?")
 
-    if hauptstadt == guess:
-        print("Right")
+    if capital == guess:
+        print("You've guessed it. Congratulations!")
         print(f"You had {attempts} attempts.")
         break
     else:
         print("That's wrong. Please try again.")
+
 
